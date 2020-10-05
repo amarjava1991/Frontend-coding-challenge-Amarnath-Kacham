@@ -1,0 +1,48 @@
+<div class='container' layout="row" layout-fill layout-align="center center">
+<table mat-table [dataSource]="enrollesList" class="mat-elevation-z8"> 
+  
+ 
+  <!-- EnrollID Column -->
+  <ng-container matColumnDef="enrollId">
+    <th mat-header-cell *matHeaderCellDef> Id. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="dateOfBirth">
+    <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+    <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
+  </ng-container>
+  <ng-container matColumnDef="activeToggle">
+    <th mat-header-cell *matHeaderCellDef> Active</th>
+    <td mat-cell *matCellDef="let element">
+      
+      <mat-slide-toggle
+      class="example-margin"
+      [checked]="element.active"
+      (change)="confirmDialog($event,element)"
+     >
+   {{(element.active?'active':'not active')}}
+  </mat-slide-toggle>
+     </td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions </th>
+   
+     <td mat-cell *matCellDef="let element"> 
+          <mat-icon aria-label="Edit"  mat-icon-button matTooltip="Click to Edit"  color="primary" (click)="openDialog(element)"> <img src='assets/images/edit.svg' /></mat-icon>
+      
+           
+      </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+</table>
+</div>

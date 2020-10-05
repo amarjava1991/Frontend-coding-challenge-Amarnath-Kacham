@@ -1,0 +1,25 @@
+
+<!-- To Confirm the user to De active the Enrolle -->
+<ng-container *ngIf='!data.active'>
+<h1 mat-dialog-title>Are You Sure To De Active ?</h1>
+<div mat-dialog-content>
+ <h4>Are You Sure you want to De Active Enrolle Id {{data.id}}</h4>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [matDialogClose]="data" cdkFocusInitial>Ok</button>
+</div>
+</ng-container>
+
+<!-- To Confirm the user to Active the Enrolle -->
+
+<ng-container *ngIf='data.active'>
+    <h1 mat-dialog-title>Are You Sure To Active ?</h1>
+    <div mat-dialog-content>
+     <h4>Are You Sure you want to active Enrolle Id {{data.id}}</h4>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">No Thanks</button>
+      <button mat-button [matDialogClose]="data" cdkFocusInitial>Ok</button>
+    </div>
+    </ng-container>
